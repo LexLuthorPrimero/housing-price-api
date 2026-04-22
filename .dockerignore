@@ -1,0 +1,13 @@
+.git
+__pycache__
+*.pyc
+*.pkl
+models/*.pkl
+data/raw
+venv
+.env
+*.log
+.coverage
+.pytest_cache
+.mypy_cache
+.ruff_cache

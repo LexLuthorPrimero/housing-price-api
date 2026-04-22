@@ -5,9 +5,7 @@ st.set_page_config(page_title="Predicción de Precios de Viviendas", layout="cen
 st.title("🏠 Predicción de Precios de Viviendas (California)")
 st.markdown("Ingresa las características de la vivienda para obtener una estimación de su precio.")
 
-# Cambia esta URL según corresponda:
-# - Para pruebas locales: "http://localhost:8000/predict"
-# - Para producción: "https://housing-price-api-1-p1hf.onrender.com/predict"
+# URL CORRECTA de tu API en Render (verificada con curl)
 API_URL = "https://housing-price-api-1-p1hf.onrender.com/predict"
 
 with st.form("prediction_form"):
@@ -38,19 +36,17 @@ with st.form("prediction_form"):
             "Longitude": longitude
         }
         try:
-            response = requests.post(API_URL, json=payload, timeout=10)
+            response = requests.post(API_URL, json=payload, timeout=15)
             if response.status_code == 200:
                 data = response.json()
                 if "price" in data:
                     price = data["price"]
-                    st.success(f"💰 Precio estimado: **${price*100000:.2f} USD** (valor real en cientos de miles)")
+                    st.success(f"💰 Precio estimado: **${price*100000:.2f} USD**")
                     st.info("Nota: El modelo predice precios en cientos de miles de dólares. Multiplica por 100,000 para obtener el valor real.")
                 else:
-                    st.error(f"La respuesta no contiene 'price'. Respuesta recibida: {data}")
+                    st.error(f"Respuesta inesperada de la API: {data}")
             else:
-                st.error(f"Error en la API: Código {response.status_code}")
-                st.text(f"Respuesta: {response.text}")
-        except requests.exceptions.ConnectionError:
-            st.error("No se pudo conectar a la API. Verifica que la API esté corriendo o que la URL sea correcta.")
+                st.error(f"Error HTTP {response.status_code}")
+                st.text(response.text)
         except Exception as e:
-            st.error(f"Error inesperado: {e}")
+            st.error(f"Error de conexión: {e}")

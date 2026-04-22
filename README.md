@@ -26,7 +26,7 @@ streamlit run app_frontend.py   # levanta el frontend en http://localhost:8501
 
 ## 🌐 Demo en línea
 
-- **API**: [https://housing-price-api.onrender.com](https://housing-price-api.onrender.com)
+- **API**: [https://housing-price-api-1-p1hf.onrender.com](https://housing-price-api-1-p1hf.onrender.com)
 - **Frontend interactivo**: [https://housing-price-api-frontend.streamlit.app](https://housing-price-api-frontend.streamlit.app) (si lo despliegas)
 
 ## 📊 Uso de la API

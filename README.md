@@ -50,3 +50,5 @@ Respuesta:
 ## Licencia
 
 MIT
+
+[![CI](https://github.com/LexLuthorPrimero/housing-price-api/actions/workflows/ci.yml/badge.svg)](https://github.com/LexLuthorPrimero/housing-price-api/actions/workflows/ci.yml)

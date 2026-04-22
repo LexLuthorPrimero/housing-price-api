@@ -6,7 +6,7 @@ st.title("🏠 Predicción de Precios de Viviendas (California)")
 st.markdown("Ingresa las características de la vivienda para obtener una estimación de su precio.")
 
 # URL de la API (cambiar si se despliega en Render)
-API_URL = "http://localhost:8000/predict"
+API_URL = "https://housing-price-api.onrender.com/predict"
 
 with st.form("prediction_form"):
     st.subheader("Características")

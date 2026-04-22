@@ -43,3 +43,7 @@ def predict(data: InputData):
                              data.Population, data.AveOccup, data.Latitude, data.Longitude]])
     prediction = model.predict(input_array)[0]
     return {"price": prediction}
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}

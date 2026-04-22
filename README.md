@@ -1,3 +1,9 @@
+[![Python](https://img.shields.io/badge/Python-3.13-blue.svg)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.136-green.svg)](https://fastapi.tiangolo.com)
+[![Coverage](badges/coverage.svg)](https://github.com/LexLuthorPrimero/housing-price-api)
+[![Render](https://img.shields.io/badge/Render-API-46E3B7)](https://housing-price-api-1-p1hf.onrender.com)
+[![Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://housing-price-api-vhnugf6deyxkt8xri92wy6.streamlit.app)
+
 # 🏠 Housing Price Prediction API
 
 API de predicción de precios de viviendas basada en el dataset **California Housing**.

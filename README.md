@@ -63,3 +63,8 @@ streamlit run app_frontend.py   # levanta el frontend en http://localhost:8501
 ## 📄 Licencia
 
 MIT
+
+## 👤 Autor
+
+**Lucas Cañete**  
+[GitHub](https://github.com/LexLuthorPrimero) · [LinkedIn](https://www.linkedin.com/in/lucas-ca%C3%B1ete-823591236/)

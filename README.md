@@ -1,16 +1,17 @@
-# Housing Price Prediction API
+# 🏠 Housing Price Prediction API
 
-API para predecir precios de viviendas usando Random Forest Regressor (California Housing dataset).
+API de predicción de precios de viviendas basada en el dataset **California Housing**.
+El modelo utiliza regresión lineal para estimar el precio en cientos de miles de dólares.
 
-## Tecnologías
+## 🚀 Tecnologías
 
-- Python 3.14
-- FastAPI
-- scikit-learn
-- Docker
-- GitHub Actions (próximamente)
+- **Python 3.13**
+- **FastAPI** (backend)
+- **Streamlit** (frontend interactivo)
+- **scikit-learn** (entrenamiento)
+- **Docker** + **Render** (despliegue)
 
-## Instalación y uso local
+## 📦 Instalación y uso local
 
 ```bash
 git clone https://github.com/LexLuthorPrimero/housing-price-api.git
@@ -18,15 +19,21 @@ cd housing-price-api
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-python scripts/train_model.py   # genera el modelo
-python scripts/run_api.py       # inicia la API en http://localhost:8000
+python scripts/train_model.py   # entrena el modelo
+uvicorn api:app --reload        # levanta la API en http://localhost:8000
+streamlit run app_frontend.py   # levanta el frontend en http://localhost:8501
 ```
 
-## Endpoint
+## 🌐 Demo en línea
 
-`POST /predict`
+- **API**: [https://housing-price-api.onrender.com](https://housing-price-api.onrender.com)
+- **Frontend interactivo**: [https://housing-price-api-frontend.streamlit.app](https://housing-price-api-frontend.streamlit.app) (si lo despliegas)
 
-Body (JSON):
+## 📊 Uso de la API
+
+**Endpoint:** `POST /predict`
+
+**Body (JSON):**
 ```json
 {
   "MedInc": 5.0,
@@ -40,15 +47,13 @@ Body (JSON):
 }
 ```
 
-Respuesta:
+**Respuesta:**
 ```json
 {"price": 2.30433}
 ```
 
-## Demo (próximamente)
+> El precio está en cientos de miles de dólares (ej. 2.30 = $230,000 USD).
 
-## Licencia
+## 📄 Licencia
 
 MIT
-
-[![CI](https://github.com/LexLuthorPrimero/housing-price-api/actions/workflows/ci.yml/badge.svg)](https://github.com/LexLuthorPrimero/housing-price-api/actions/workflows/ci.yml)

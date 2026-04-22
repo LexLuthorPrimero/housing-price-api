@@ -8,38 +8,31 @@ import joblib
 import os
 
 def train():
-    # Cargar dataset
     housing = fetch_california_housing()
     df = pd.DataFrame(housing.data, columns=housing.feature_names)
     df['target'] = housing.target
     
-    # Features y target
     features = ['MedInc', 'HouseAge', 'AveRooms', 'AveBedrms', 'Population', 'AveOccup', 'Latitude', 'Longitude']
     target = 'target'
     
     X = df[features]
     y = df[target]
     
-    # Dividir entrenamiento/test
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
-    # Entrenar modelo
     model = RandomForestRegressor(n_estimators=100, random_state=42, n_jobs=-1)
     model.fit(X_train, y_train)
     
-    # Evaluar
     y_pred = model.predict(X_test)
     mae = mean_absolute_error(y_test, y_pred)
     r2 = r2_score(y_test, y_pred)
-    print(f"Error absoluto medio (MAE): {mae:.4f}")
-    print(f"R²: {r2:.4f}")
+    print(f"MAE: ${mae:.2f}")
+    print(f"R2: {r2:.4f}")
     
-    # Guardar modelo
     os.makedirs('models', exist_ok=True)
     joblib.dump(model, 'models/housing_price_predictor.pkl')
     print("Modelo guardado en models/housing_price_predictor.pkl")
     
-    # Guardar nombres de features
     with open('models/features.txt', 'w') as f:
         f.write('\n'.join(features))
 
